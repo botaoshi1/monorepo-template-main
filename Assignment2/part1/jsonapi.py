@@ -2,23 +2,46 @@ import json
 
 class ExtendedEncoder(json.JSONEncoder):
     def default(self, obj):
-        if isinstance(obj, complex):
-            return {'__complex__': True, 'real': obj.real, 'imag': obj.imag}
-        if isinstance(obj, range):
-            return {'__range__': True, 'start': obj.start, 'stop': obj.stop, 'step': obj.step}
-        return super().default(obj)
+        name = type(obj).__name__
+        try:
+            encoder = getattr(self, f"encode_{name}")
+        except AttributeError:
+            super().default(obj)
+        else:
+            encoded = encoder(obj)
+            encoded["__extended_json_type__"] = name
+            return encoded
 
 class ExtendedDecoder(json.JSONDecoder):
-    def decode(self, s):
-        obj = super().decode(s)
-        if '__complex__' in obj:
-            return complex(obj['real'], obj['imag'])
-        if '__range__' in obj:
-            return range(obj['start'], obj['stop'], obj['step'])
-        return obj
+    def __init__(self, **kwargs):
+        kwargs["object_hook"] = self.object_hook
+        super().__init__(**kwargs)
 
+    def object_hook(self, obj):
+        try:
+            name = obj["__extended_json_type__"]
+            decoder = getattr(self, f"decode_{name}")
+        except (KeyError, AttributeError):
+            return obj
+        else:
+            return decoder(obj)
+
+class MyEncoder(ExtendedEncoder):
+    def encode_complex(self, c):
+        return {"real": c.real, "imag": c.imag}
+
+    def encode_range(self, r):
+        return {"start": r.start, "stop": r.stop, "step": r.step}
+
+class MyDecoder(ExtendedDecoder):
+    def decode_complex(self, obj):
+        return complex(obj["real"], obj["imag"])
+
+    def decode_range(self, obj):
+        return range(obj["start"], obj["stop"], obj["step"])
+    
 def dumps(obj, **kwargs):
-    return json.dumps(obj, cls=ExtendedEncoder, **kwargs)
+    return json.dumps(obj, cls=MyEncoder, **kwargs)
 
 def loads(s, **kwargs):
-    return json.loads(s, cls=ExtendedDecoder, **kwargs)
+    return json.loads(s, cls=MyDecoder, **kwargs)
