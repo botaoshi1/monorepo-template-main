@@ -3,7 +3,8 @@
 - Name: Botao Shi
 - How many hours did it take you to complete this assignment? 3.5 hours
 - Did you collaborate with any other students/TAs/Professors? No
-- Did you use any external resources? (Cite them below) No
+- Did you use any external resources? (Cite them below) 
+  https://mathspp.com/blog/custom-json-encoder-and-decoder
 - (Optional) What was your favorite part of the assignment?
 - (Optional) How would you improve the assignment?
 
