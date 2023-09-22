@@ -42,7 +42,7 @@ class ExtendedDecoderTest(unittest.TestCase):
         my_data = jsonapi.loads(json_data)
         self.assertEqual(my_data, range(1, 10))
 
-    def test_encode(self):
+    def test_decode(self):
         json_data = '{"hey": {"real": 1.0, "imag": 2.0, "__extended_json_type__": "complex"}, "there": {"start": 1, "stop": 10, "step": 3, "__extended_json_type__": "range"}, "73": false}'
         my_data = jsonapi.loads(json_data)
         self.assertEqual(my_data, {'hey': (1+2j), 'there': range(1, 10, 3), '73': False})
