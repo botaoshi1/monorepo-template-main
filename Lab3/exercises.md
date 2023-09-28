@@ -12,7 +12,7 @@ Update your answers to the following questions, make sure to commit this file an
 1. What class does Texture inherit from?
 	- Image class.
 1. What methods and attributes does the Texture class inherit from 'Image'? 
-	- Every methods and attributes are inherited.
+	- Every methods and attributes from 'Image' will be inherited.
 1. Do you think a texture should have a 'has-a' (composition) or 'is-a'(inheritance) relationship with 'Image'? If you think it is a 'has-a' relationship, refactor the code. As long as you defend your decision in the response below it could be either--but defend your position well!
 	- I personally think the texture here means the image used in a 3D model for games or movies, so I believe a texture 'is-a' image in nature.
 1. I did not declare a constructor for Texture. Does Python automatically create constructors for us? 
@@ -31,4 +31,5 @@ Hint: Look at Lecture 3 slides for an example of creating a Singleton in Python
 1. Are singleton's in Python thread safe? Why or why not?
 
 *edit the code directly*  
+   - The singleton in this lab's code is not thread safe because if multiple threads are trying to generate an instance at the same time, multiple instances will be created. Adding a lock can help it be thread safe.
   

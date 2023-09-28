@@ -4,13 +4,20 @@ class Logger:
     def __init__(self):
         self.messages = []
 
+    def __new__(cls):
+        if not cls._instance:
+            cls._instance = super(Logger, cls).__new__(cls)
+            cls._instance.__init__()
+            print("Logger created exactly once")
+        else:
+            print("Logger already created")
+        return cls._instance
+    
     def add_message(self, message):
         self.messages.append(message)
 
 
 def main():
-    # Logger should only be initialized one time if it is properly
-    # refactored as a singleton class
     for i in range(3):
         logger = Logger()
         logger.add_message(f"Adding message number: {i}")
