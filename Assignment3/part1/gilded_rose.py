@@ -15,11 +15,27 @@ class ItemUpdater:
     def update(self, item):
         pass
 
+class NormalItemUpdater(ItemUpdater):
+    def update(self, item):
+        item.quality -= 1
+        item.sell_in -= 1
+        if item.sell_in < 0 and item.quality > 0:
+            item.quality -= 1
+
+        if item.quality > 50:
+            item.quality = 50
+        if item.quality < 0:
+            item.quality = 0
+
 class AgedBrieItemUpdater(ItemUpdater):
     def update(self, item):
-        if item.quality < 50:
-            item.quality += 1
+        item.quality += 1
         item.sell_in -= 1
+
+        if item.quality > 50:
+            item.quality = 50
+        if item.quality < 0:
+            item.quality = 0
 
 class BackstagePassItemUpdater(ItemUpdater):
     def update(self, item):
@@ -33,17 +49,24 @@ class BackstagePassItemUpdater(ItemUpdater):
         if item.sell_in < 0:
             item.quality = 0
 
+        if item.quality > 50:
+            item.quality = 50
+        if item.quality < 0:
+            item.quality = 0
+
 class SulfurasItemUpdater(ItemUpdater):
     def update(self, item):
-        pass
+        item.quality = 80
 
-class OtherItemUpdater(ItemUpdater):
+class ConjuredItemUpdater(ItemUpdater):
     def update(self, item):
-        if item.quality > 0:
-            item.quality -= 1
+        item.quality -= 2
         item.sell_in -= 1
-        if item.sell_in < 0 and item.quality > 0:
-            item.quality -= 1
+
+        if item.quality > 50:
+            item.quality = 50
+        if item.quality < 0:
+            item.quality = 0
 
 class GildedRose(object):
 
@@ -61,5 +84,7 @@ class GildedRose(object):
         for item in self.items:
             if item.name in self.ITEM_UPDATERS:
                 self.ITEM_UPDATERS[item.name].update(item)
+            elif item.name[:8] == "Conjured":
+                ConjuredItemUpdater().update(item)
             else:
-                OtherItemUpdater().update(item)
+                NormalItemUpdater().update(item)
