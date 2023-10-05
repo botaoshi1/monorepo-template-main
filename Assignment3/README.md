@@ -1,10 +1,13 @@
 # TODO Please edit the following information in your assignment
 
-- Name:
-- How many hours did it take you to complete this assignment?
-- Did you collaborate with any other students/TAs/Professors?
+- Name: Botao Shi
+- How many hours did it take you to complete this assignment?  
+  3 hours.
+- Did you collaborate with any other students/TAs/Professors?  
+  No, but I take the reference from piazza:  
+  https://piazza.com/class/lm6kxf5jvnq1e6/post/36
 - Did you use any external resources? (Cite them below)
-  - tbd
+  - I used Chatgpt to generate 4 test cases that I didn't cover by myself.
   - tbd
 - (Optional) What was your favorite part of the assignment?
 - (Optional) How would you improve the assignment?
