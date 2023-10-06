@@ -6,31 +6,34 @@
 
 <hr>
 
-**Use Case**: *use-case-title*
+**Use Case**: Color Change
 
-**Primary Actor**: *primary-actor*
+**Primary Actor**: User
 
-**Goal in Context**: *the aim of the primary-actor in a particular circumstance*
+**Goal in Context**: To change drawing colors by pressing number keys
 
-**Preconditions**: *conditions that must be true before the scenario may play out*
+**Preconditions**: The program must be running and in a responsive state. The number keys can be pressed. The number-color relationship is set up correctly.
 
-**Trigger**: *an action or actions that initiate the scenario*
+**Trigger**: Pressing the number keys.
   
-**Scenario**: *an enumerated list of steps describing the actions and interactions of the primary actor with the system*
+**Scenario**: The user presses number 2 on the keyboard and now the drawing color is white.
  
-**Exceptions**: *errors or faults that may occur during the scenario. Should include remedy/corrective action taken by the primary actor*
+**Exceptions**:
+1. The user pressed a number key but nothing happened. In this case, the user should first check if the keyboard is working and connecting to the computer and fix correspondingly. Then the user should make sure the function of color switch through keyboard is turned on in the program setup. If all these methods are not working, the user should be allowed to change color by clicking on the sidebar.
 
-**Priority**: *relative importance of this use case compared to other use cases*
+2. The user pressed a number key and the color is not displyed as expected. In this case, the user should check the program setup to make sure the number-color relationship is correct.
 
-**When available**: *the targeted release that covers this use case*
+**Priority**: High-priority.
 
-**Channel to actor**: *the means through which the primary actor and the system communicate*
+**When available**: First release
 
-**Secondary Actor**: *any other actors – people or systems – that may be involved in the scenario*
+**Channel to actor**: The primary actor communicates through I/O devices. This includes the keyboard and the mouse. The system is responsible for maintaining focus of the window when the user clicks, and should respond within 1 second of any keyboard event. The user is responsible for all other input.
 
-**Channels to Secondary Actors**: *the means through which any secondary actors may interact with the system or other actors*
+**Secondary Actor**: N/A
 
-**Open Issues**: *notes, concerns, or other materials*
+**Channels to Secondary Actors**: N/A
+
+**Open Issues**: We may need to implement 'undo' functionality in the future, so that users won't draw something in an unwanted color by mis-touching a number key.
 
 <hr>
 

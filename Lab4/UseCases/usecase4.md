@@ -6,31 +6,36 @@
 
 <hr>
 
-**Use Case**: *use-case-title*
+**Use Case**: Drawing
 
-**Primary Actor**: *primary-actor*
+**Primary Actor**: User
 
-**Goal in Context**: *the aim of the primary-actor in a particular circumstance*
+**Goal in Context**: To draw on canvas through mouse.
 
-**Preconditions**: *conditions that must be true before the scenario may play out*
+**Preconditions**: The program must be running and in a responsive state.
 
-**Trigger**: *an action or actions that initiate the scenario*
+**Trigger**: Left-clicking the mouse to change the pixel color and draging the mouse to draw like a pencil.
   
-**Scenario**: *an enumerated list of steps describing the actions and interactions of the primary actor with the system*
+**Scenario 1**: If the previous selected color is yellow and after a user left-clicks the mouse, the color of the pixel where the mouse is located is changed to yellow.
+
+**Scenario 2**: If the previous selected color is green and after a user presses the mouse and drags it on canvas, a green line should be displayed. The line should end when the mouse is released.
  
-**Exceptions**: *errors or faults that may occur during the scenario. Should include remedy/corrective action taken by the primary actor*
+**Exceptions**:  
+1. The user pressed the mouse but nothing happened. In this case, the user should first check whether the mouse is connected to the computer and it could be clicked successfully. Then the user should make sure the mouse is left-clicked not right-clicked.
 
-**Priority**: *relative importance of this use case compared to other use cases*
+2. The user pressed the mouse and draged it but no line was displayed. In this case, the user should first make sure if the mouse is dragged while pressed but not released. If this is not working, the user should be able to create a line by selecting from the sidebar.
 
-**When available**: *the targeted release that covers this use case*
+**Priority**: High-priority.
 
-**Channel to actor**: *the means through which the primary actor and the system communicate*
+**When available**: First release
 
-**Secondary Actor**: *any other actors – people or systems – that may be involved in the scenario*
+**Channel to actor**: The primary actor communicates through I/O devices. This includes the keyboard and the mouse. The system is responsible for maintaining focus of the window when the user clicks, and should respond within 1 second of any keyboard event. The user is responsible for all other input.
 
-**Channels to Secondary Actors**: *the means through which any secondary actors may interact with the system or other actors*
+**Secondary Actor**: N/A
 
-**Open Issues**: *notes, concerns, or other materials*
+**Channels to Secondary Actors**: N/A
+
+**Open Issues**: We may need to implement 'undo' functionality in the future, so that users won't draw something in accident by mis-pressing the mouse on canvas.
 
 <hr>
 

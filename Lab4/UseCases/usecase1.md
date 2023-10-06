@@ -6,31 +6,33 @@
 
 <hr>
 
-**Use Case**: *use-case-title*
+**Use Case**: Canvas Size Setup
 
-**Primary Actor**: *primary-actor*
+**Primary Actor**: User
 
-**Goal in Context**: *the aim of the primary-actor in a particular circumstance*
+**Goal in Context**: To display the canvas with a size of 600x400.
 
-**Preconditions**: *conditions that must be true before the scenario may play out*
+**Preconditions**: The system is running and the program is runnable.
 
-**Trigger**: *an action or actions that initiate the scenario*
+**Trigger**: Clicking on the program to start it.
   
-**Scenario**: *an enumerated list of steps describing the actions and interactions of the primary actor with the system*
+**Scenario**: User starts the program and a drawable canvas is displayed in a size of 600x400.
  
-**Exceptions**: *errors or faults that may occur during the scenario. Should include remedy/corrective action taken by the primary actor*
+**Exceptions**:  
+1. The program is not runnable. In this case, the user can check the minimum requirement of both the computer system or the software itself and decide which one to upgrade to the latest version.
+2. The size of the displayed window is not correct. In this case, the user can input the correct dimensions in software settings.
 
-**Priority**: *relative importance of this use case compared to other use cases*
+**Priority**: High-priority.
 
-**When available**: *the targeted release that covers this use case*
+**When available**: First release
 
-**Channel to actor**: *the means through which the primary actor and the system communicate*
+**Channel to actor**: The primary actor communicates through I/O devices. This includes the keyboard and the mouse. The system is responsible for maintaining focus of the window when the user clicks, and should respond within 1 second of any keyboard event. The user is responsible for all other input.
 
-**Secondary Actor**: *any other actors – people or systems – that may be involved in the scenario*
+**Secondary Actor**: N/A
 
-**Channels to Secondary Actors**: *the means through which any secondary actors may interact with the system or other actors*
+**Channels to Secondary Actors**: N/A
 
-**Open Issues**: *notes, concerns, or other materials*
+**Open Issues**: N/A
 
 <hr>
 
