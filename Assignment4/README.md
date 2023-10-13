@@ -1,8 +1,10 @@
 # TODO Please edit the following information in your assignment
 
-- Name:
+- Name: Botao Shi
 - How many hours did it take you to complete this assignment?
+  30 minutes  
 - Did you collaborate with any other students/TAs/Professors?
+  No  
 - Did you use any external resources? (Cite them below)
   - tbd
   - tbd
